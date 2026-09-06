@@ -14,7 +14,6 @@ O projeto foi desenvolvido como atividade acadêmica do curso de Análise e Dese
 - Definição de categoria do chamado
 - Definição de prioridade
 
-# Tecnologias utilizadas
 
 ### Front-end
 - HTML
