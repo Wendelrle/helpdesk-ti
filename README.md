@@ -51,4 +51,3 @@ Ingryd Cunha Perfeto — 2100669
 
 Romay Henrique de Oliveira — 2401031
 
-Felipe Certorio de Melo Cruz — 2403552
