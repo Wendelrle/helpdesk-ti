@@ -39,7 +39,16 @@ O projeto foi desenvolvido como atividade acadêmica do curso de Análise e Dese
 O objetivo do projeto é aplicar na prática conceitos de desenvolvimento de sistemas, utilizando front-end, back-end e banco de dados em uma aplicação de três camadas.
 
 ## Autor
+Wendel Alves Machado RA:2401630 
 
-Wendel Alves Machado 
-RA:2401630
-EAD-ADS 4A
+Rafaela Vaz Veronezzi — 2401583 
+
+Richard Orsolon Bragion Vasconcelos — 2203476
+
+Larissa Costa Silva — 2400990
+
+Ingryd Cunha Perfeto — 2100669
+
+Romay Henrique de Oliveira — 2401031
+
+Felipe Certorio de Melo Cruz — 2403552
