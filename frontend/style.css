@@ -57,3 +57,117 @@ h2 {
 p {
     text-align: center;
 }
+
+.pagina-tecnico {
+    background-color: #f4f6f8;
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pagina-tecnico h1 {
+    color: #1e3a5f;
+    margin-bottom: 5px;
+}
+
+.pagina-tecnico h2 {
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.pagina-tecnico h3 {
+    color: #1e3a5f;
+    margin-bottom: 5px;
+}
+
+.pagina-tecnico #total-chamados {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.pagina-tecnico label {
+    font-weight: bold;
+    color: #333;
+}
+
+.pagina-tecnico #filtro-status {
+    padding: 9px 12px;
+    margin-left: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.pagina-tecnico #lista-chamados {
+    margin-top: 10px;
+}
+
+.pagina-tecnico .chamado-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 18px;
+    line-height: 1.7;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.pagina-tecnico .chamado-card > strong:first-child {
+    color: #1e3a5f;
+    font-size: 18px;
+}
+
+.pagina-tecnico .chamado-card select {
+    padding: 8px;
+    margin-top: 12px;
+    margin-right: 8px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.pagina-tecnico .chamado-card button {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1e3a5f;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pagina-tecnico .chamado-card button:hover {
+    background-color: #152b47;
+}
+
+
+@media (max-width: 600px) {
+    .pagina-tecnico {
+        padding: 15px;
+    }
+
+    .pagina-tecnico #filtro-status {
+        display: block;
+        margin-left: 0;
+        margin-top: 8px;
+    }
+
+    .pagina-tecnico .chamado-card {
+        padding: 15px;
+    }
+
+    .pagina-tecnico .chamado-card select {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .pagina-tecnico .chamado-card button {
+        width: 100%;
+    }
+}

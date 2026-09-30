@@ -28,7 +28,11 @@ fetch("http://127.0.0.1:8000/login", {
 
     if (dados.mensagem === "login realizado com sucesso") {
         console.log("entrou no redirecionamento");
+    if (dados.tipo === "tecnico") {
+    window.location.href = "tecnico.html";
+} else {
     window.location.href = "chamados.html";
+}
 }
 });
 });

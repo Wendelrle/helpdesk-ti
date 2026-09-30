@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Técnico - HelpDesk TI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="pagina-tecnico">
+
+    <h1>HelpDesk TI</h1>
+    <h2>Painel do Técnico</h2>
+
+    <h3>Chamados</h3>
+    <p id="total-chamados"></p>
+    <label for="filtro-status">Filtrar por status:</label>
+
+<select id="filtro-status">
+    <option value="Todos">Todos</option>
+    <option value="Aberto">Aberto</option>
+    <option value="Em atendimento">Em atendimento</option>
+    <option value="Resolvido">Resolvido</option>
+</select>
+
+    <div id="lista-chamados">
+        <!-- Os chamados aparecerão aqui -->
+    </div>
+<script src="tecnico.js"></script>
+</body>
+</html>
