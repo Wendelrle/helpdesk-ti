@@ -58,7 +58,10 @@ def fazer_login(login: Login):
    )
     usuario_encontrado = cursor.fetchone()
     if usuario_encontrado:
-        return {"mensagem": "login realizado com sucesso"}
+     return {
+        "mensagem": "login realizado com sucesso",
+        "tipo": usuario_encontrado[4]
+    }
     
     return {"mensagem": "E-email ou senha incorretos"}
 class Chamado(BaseModel):
@@ -66,6 +69,9 @@ class Chamado(BaseModel):
     descricao: str
     categoria: str
     prioridade: str
+
+class AtualizarStatus(BaseModel):
+    status: str
 
 @app.post("/chamados")
 def abrir_chamado(chamado: Chamado):
@@ -85,4 +91,20 @@ def listar_chamados():
     chamados = cursor.fetchall()
 
     return{"chamados": chamados}
+
+@app.put("/chamados/{chamado_id}/status")
+def atualizar_status(chamado_id: int, dados: AtualizarStatus):
+    cursor = conexao.cursor()
+
+    cursor.execute(
+        "UPDATE chamados SET status = %s WHERE id = %s",
+        (dados.status, chamado_id)
+    )
+
+    conexao.commit()
+
+    return {"mensagem": "Status atualizado com sucesso"}
+
+
+
     
