@@ -33,7 +33,9 @@ dados.chamados.forEach(function(chamado) {
         <strong>Descrição:</strong> ${chamado[2]}<br>
         <strong>Categoria:</strong> ${chamado[3]}<br>
         <strong>Prioridade:</strong> ${chamado[4]}<br>
+        <strong>Técnico responsável:</strong> ${chamado[7] === 6 ? "Thiago" : "Não atribuído"}<br>
         <strong>Status atual:</strong> ${chamado[5]}<br>
+        <strong>Técnico responsável:</strong> ${chamado[7] === 6 ? "Thiago" : "Não atribuído"}<br>
     <strong>Data de criação:</strong> ${formatarData(chamado[6])}<br>
     <strong>Novo status:</strong>
     <select>
@@ -46,6 +48,16 @@ dados.chamados.forEach(function(chamado) {
     Atualizar status
     </button>
      </div>
+
+
+    <button onclick="assumirChamado(${chamado[0]})">
+
+     Assumir chamado
+    </button>
+    
+    <button onclick="verHistorico(${chamado[0]})">
+    Ver histórico
+    </button>
      `;
     });
     }); 
@@ -89,10 +101,55 @@ filtroStatus.addEventListener("change", function() {
     <option value="Em atendimento" ${chamado[5] === "Em atendimento" ? "selected" : ""}>Em atendimento</option>
     <option value="Resolvido" ${chamado[5] === "Resolvido" ? "selected" : ""}>Resolvido</option>
     </select>
+
     <button onclick="alterarStatus(${chamado[0]}, this.previousElementSibling.value)">
     Atualizar status
     </button>
     </div>
+    <button onclick="assumirChamado(${chamado[0]})">
+    Assumir chamado
+    </button>
+    <button onclick="verHistorico(${chamado[0]})">
+    Ver histórico
+    </button>
     `;
 });
 });
+
+function assumirChamado(chamadoId) {
+    fetch(`http://127.0.0.1:8000/chamados/${chamadoId}/assumir`, {
+        method: "PUT"
+    })
+    .then(resposta => resposta.json())
+    .then(dados => {
+        alert(dados.mensagem);
+        window.location.reload();
+    })
+    .catch(erro => {
+        console.error(erro);
+        alert("Erro ao assumir chamado");
+    });
+}
+function verHistorico(chamadoId) {
+    fetch(`http://127.0.0.1:8000/chamados/${chamadoId}/historico`)
+        .then(resposta => resposta.json())
+        .then(dados => {
+            if (dados.historico.length === 0) {
+                alert("Este chamado ainda não possui histórico.");
+                return;
+            }
+
+            let mensagem = "Histórico do chamado #" + chamadoId + "\n\n";
+
+            dados.historico.forEach(registro => {
+                mensagem += `${registro[2]} → ${registro[3]}\n`;
+                mensagem += `Data: ${formatarData(registro[4])}\n\n`;
+            });
+
+            alert(mensagem);
+        })
+        .catch(erro => {
+            console.error(erro);
+            alert("Erro ao consultar histórico.");
+        });
+}
